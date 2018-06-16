@@ -4,7 +4,8 @@ notatki na podstawie przykładowego testu zaliczeniowego
 ---
 
 ## Sterowanie predykcyjne
-W sterowaniu predykcyjnym regulator dostosowuje swoje działanie z wyprzedzeniem, zanim nastąpią zmiany wielkości wyjściowych układu [[link]](https://pl.wikipedia.org/wiki/Sterowanie_predykcyjne)
+W sterowaniu predykcyjnym regulator dostosowuje swoje działanie z wyprzedzeniem, zanim nastąpią zmiany wielkości wyjściowych układu [[link]]
+(https://pl.wikipedia.org/wiki/Sterowanie_predykcyjne)
 ![](https://upload.wikimedia.org/wikipedia/commons/c/c3/Schemat_dzialania_MPC.png)
 
 ## Predyktor horyzontu
@@ -16,14 +17,14 @@ Ich celem jest utrzymanie wartości wyjściowej na określonym poziomie, zwanym 
 
 Przykład: chcemy żeby silnik miał stałe obroty, mimo stale zmieniających się czynników zewnętrznych (np. jego obciążenia). Regulator co chwilę sprawdza uchyb od pożądanej wartości, dostosowuje wartości mające wpływ na obroty silnika tak, żeby szybkość obrotów wróciła do normy.
 
-Wejście regulatora: uchyb (wartość zadane - aktualna wartość)
+Wejście regulatora: uchyb (wartości zadane minus aktualna wartość)
 
 Wyjście: sygnał sterujący silnikiem
 
 Algorytm obliczeń regulatora PID zawiera trzy oddzielne stałe parametry i dlatego czasami bywa nazywany regulatorem z trzema członami: proporcjonalnym, całkującym i różniczkującym, oznaczonymi odpowiednio P, I i D.
 
-* P - zwiększa jakąś wartość przez wartość błędu. Nie wpływa na redukcję błędu.
-* I - dostosowuje wyjście do danych z przeszłości. Wypływa na kocową wartość jeśli dotychczasowe wartości wyjścia nie wystarczyły do zmniejszenia błędu. Sprowadza uchyb do zera.
+* P - zmienia wartość wyjścia mnożąc jakąś stałą przez wartość błędu. Nie wpływa na redukcję błędu (uchybu).
+* I - dostosowuje wyjście do danych z przeszłości. Zmienia wartość wyjścia, jeżeli dotychczasowe zmiany nie dały pozytywnego rezultatu. Jego zadaniem jest sprowadzenie uchybu do zera.
 * D - nie bierze pod uwagę wartości błędu lecz prędkość jego zmian. Dąży do ustabilizowania prędkości zmian, żeby uniknąć (overshooting?) ominięcia wartości do której dążyliśmy (z błędu dodatniego przeszliśmy w ujemny)
 
 [Polecam ten artykuł na temat PID](https://en.wikipedia.org/wiki/PID_controller#Control_loop_example)
@@ -32,7 +33,7 @@ Algorytm obliczeń regulatora PID zawiera trzy oddzielne stałe parametry i dlat
 r(t) - wartość zadana, y(t) - wartość zmierzona
 
 
-## horyzont predykcji 
+## Horyzont predykcji 
 
 ?
 
