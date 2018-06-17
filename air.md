@@ -32,10 +32,11 @@ Algorytm obliczeń regulatora PID zawiera trzy oddzielne stałe parametry i dlat
 ![](https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/PID_en.svg/971px-PID_en.svg.png)
 r(t) - wartość zadana, y(t) - wartość zmierzona
 
+Wartości Kp, Ti oraz Td na obrazku to tzw. nastawy regulatorów. Dobiera się je w zależności od zastosowania regulatora.
 
 ## Horyzont predykcji 
 
-?
+Z jak dużym wyprzedzeniem model potrafi przewidzieć przyszłość.
 
 ## Histogramy brzegowe (lateralne)
 
