@@ -17,7 +17,7 @@ Ich celem jest utrzymanie wartości wyjściowej na określonym poziomie, zwanym 
 
 Przykład: chcemy żeby silnik miał stałe obroty, mimo stale zmieniających się czynników zewnętrznych (np. jego obciążenia). Regulator co chwilę sprawdza uchyb od pożądanej wartości, dostosowuje wartości mające wpływ na obroty silnika tak, żeby szybkość obrotów wróciła do normy.
 
-Wejście regulatora: uchyb (wartości zadane minus aktualna wartość)
+Wejście regulatora: uchyb (różnica między wartością zadaną a wyjściem obiektu)
 
 Wyjście: sygnał sterujący silnikiem
 
@@ -111,3 +111,27 @@ System który spełnia zasadę superpozycji (?)
 2) odpowiedź na pobudzenie a*u1(t) jest równa a*y1(t) dla dowolnego a
 
 Przykład z wykładu: orkiestra i skrzypek; jeżeli nagranie ich osobno da taki sam efekt co gdyby grali razem jednocześnie, to taki system jest liniowy)
+
+## Enkoder magnetyczny
+Urządzenie służące do uzyskania informacji na temat prędkości i obrotu koła
+
+![](notatki_zalaczniki\magneticencoder.jpg)
+
+## Odometria
+Dział miernictwa, który zajmuje się pomiarem odległości. W robotyce jest wykorzystywana do oszacowania zmiany położenia robota względem początkowej pozycji.
+
+> Suppose a robot has rotary encoders on its wheels or on its legged joints. It drives forward for some time and then would like to know how far it has traveled. It can measure how far the wheels have rotated, and if it knows the circumference of its wheels, compute the distance.
+[źródło](https://en.wikipedia.org/wiki/Odometry)
+
+## Termopara (termoelement)
+> Termopara składa się z pary różnych metali zwykle w postaci przewodów, spojonych na obu końcach. Jedno złącze umieszczane jest w miejscu pomiaru, podczas gdy drugie utrzymywane jest w stałej temperaturze odniesienia (np. mieszanina wody z lodem). Gdy nie jest wymagana duża dokładność (dopuszczalny błąd rzędu kilku stopni), jako temperaturę odniesienia traktuje się np. temperaturę wnętrza szafy sterowniczej maszyny przemysłowej, mierzoną z pomocą innego czujnika (jest to tzw. sztuczne zero). Pod wpływem różnicy temperatury między złączami (pomiarowym i odniesienia) powstaje różnica potencjałów (siła elektromotoryczna), zwana w tym przypadku siłą termoelektryczną, proporcjonalna do różnicy temperatur. [źródło](https://pl.wikipedia.org/wiki/Termopara)
+
+## PLC
+Programowalny sterownik logiczny (programmable logic controller). Uniwersalne urządzenie przeznaczone do sterowania pracą maszyny.
+
+> Na ogół to sterowniki PLC połączone są bezpośrednio z urządzeniami wykonawczymi (zawory, pompy itp.) i pomiarowymi (czujniki temperatury, poziomu itp.) i zbierają aktualne dane z obiektu oraz wykonują automatyczne algorytmy sterowania i regulacji. Za pośrednictwem sterowników PLC dane trafiają do systemu komputerowego i tam są archiwizowane oraz przetwarzane na formę bardziej przyjazną dla użytkownika. [źródło](https://pl.wikipedia.org/wiki/SCADA)
+
+## SCADA
+![](https://upload.wikimedia.org/wikipedia/commons/8/88/Scada_std_anim_no_lang.gif)
+
+System informatyczny pełniący rolę nadrzędną do sterowników PLC. Zbiera dane pomiarowe, steruje procesem, wizualizuje je, archiwizuje dane oraz alarmuje wykrywając nieprawidłowości.
