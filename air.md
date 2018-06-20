@@ -41,10 +41,15 @@ Z jak dużym wyprzedzeniem model potrafi przewidzieć przyszłość.
 ## Histogramy brzegowe (lateralne)
 
 ## Klasa przegubu
-?
+(tutaj nie jestem pewien)
+
+Ilość utraconych stopni swobody przegubu. To znaczy: przegub może mieć 6 stopni swobody (poruszać się w po osiach X, Y, Z i obracać się po osiach X, Y, Z). Przegub 5 klasy straciłby 5 opcji zmiany pozycji, tzn. mógłby się na przykład móc obracać tylko po osi X.
 ## Ruchliwość
-Liczba stopni swobody łacucha kinematycznego z unieruchomionym pierwszym członem.
+Liczba stopni swobody łacucha kinematycznego z unieruchomionym pierwszym członem. Ruchliwość jest równa liczbie niezależnych napędów, które zapewniają określony ruch mechanizmu.
+
 ![](./notatki_zalaczniki/ruchliwosc.png)
+
+Lub `r=w-6` gdzie `w` to liczba stopni swobody.
 
 gdzie: n liczba członów; i klasa przegubu; pi liczba przegubów i-tej klasy
 
@@ -136,3 +141,9 @@ Programowalny sterownik logiczny (programmable logic controller). Uniwersalne ur
 ![](https://upload.wikimedia.org/wikipedia/commons/8/88/Scada_std_anim_no_lang.gif)
 
 System informatyczny pełniący rolę nadrzędną do sterowników PLC. Zbiera dane pomiarowe, steruje procesem, wizualizuje je, archiwizuje dane oraz alarmuje wykrywając nieprawidłowości.
+
+## Lidary
+Laserowe, trójwymiarowe czujniki odległości. Umożliwiają bezpośredni odczyt mierzonej odległości we współrzędnych trójwymiarowych, co stanowi kolosalną oszczędność kosztów przetwarzania danych. W porównaniu do układów wizyjnych, Lidary są niewrażliwe na wpływy iluminacji zewnętrznej (np. eliminuje to konieczność odróżniania cieni od rzeczywistych obiektów).
+
+## Czujnik taktylny
+Czujnik dotykowy, realizujący pomiar w bezpośrednim kontakcie z bodźcem źródła fizycznego. Może to być binarny czujnik obecności lub też analogowy czujnik siły nacisku.
