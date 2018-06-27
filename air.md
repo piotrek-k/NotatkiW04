@@ -8,10 +8,6 @@ W sterowaniu predykcyjnym regulator dostosowuje swoje działanie z wyprzedzeniem
 (https://pl.wikipedia.org/wiki/Sterowanie_predykcyjne)
 ![](https://upload.wikimedia.org/wikipedia/commons/c/c3/Schemat_dzialania_MPC.png)
 
-## Predyktor horyzontu
-
-?
-
 ## Regulatory PID
 Ich celem jest utrzymanie wartości wyjściowej na określonym poziomie, zwanym wartością zadaną. [[link]](https://pl.wikipedia.org/wiki/Regulator_PID)
 
@@ -58,8 +54,37 @@ liczba stopni swobody łańcucha kinematycznego z unieruchomionym pierwszym i os
 
 `m = r - 6`
 
-## Odpowiedź skokowa
-?
+## Przekaźnik elektromagnetyczny
+> Dzięki przekaźnikom sygnały o większej amplitudzie, większym poziomie napięć lub prądów mogą wywoływać skutki w obwodach, w których obowiązują inne poziomy sygnałów.
+
+![](https://upload.wikimedia.org/wikipedia/commons/f/fd/Przeka%C5%BAnik.GIF)
+
+[źródło](https://pl.wikipedia.org/wiki/Przeka%C5%BAnik)
+
+## Realizacja iloczynu logicznego dwóch zmiennych
+[Iloczyn logiczny inaczej koniunkcja](https://pl.wikipedia.org/wiki/Koniunkcja_(logika))
+![](notatki_zalaczniki\and_relay.jpg)
+[źródło](http://slideplayer.com/slide/8621835/)
+
+## Układ otwarty
+
+Układ automatyki w którym nie występuje sprzężenie zwrotne. Przebieg sygnału następuje tylko w jednym kierunku, tj. od wejścia do wyjścia. Stosowany w robotach I regeneracji, tj. takich, które nie mają czujników zewnętrznych.
+
+## Regulator dwustawny
+Regulator w którym sygnał przyjmuje wyłącznie 2 wartości. Prawdopodobnie stosuje się je do sterowania obiektami cieplnymi (ogrzewanie domu: zbyt zimno - włącz ogrzewanie, zbyt ciepło - wyłącz) ?
+
+## Regualtor Watta
+Stosowany w maszynach parowych, wykorzystuje siłę odśrodkową do regulacji prędkości obrotów. Ciężarki były wprawiane w ruch obrotowy wokół pewnej osi, im szybciej się obracały tym bardziej oddalały się od osi, co odcinało dopływ pary w maszynie parowej. Zwolnienie obrotów powodowało opadnięcie ciężarków i przywrócenie dopływu pary.
+[wiki](https://pl.wikipedia.org/wiki/Regulator_od%C5%9Brodkowy_obrot%C3%B3w)
+
+## Seperacja galwiniczna
+Izolacja dwóch bloków systemu elektrycznego tak, aby prąd nie przepływał bezpośrednio z jednego bloku do drugiego (np. gdy części urządzenia pracują na różnych napięciach)
+
+Przykładowe zastosowanie: transoptor. Transoptor może działać jako czujnik odbiciowy (wykrywający zmiany koloru podłoża), jedna część obwodu emituje światło, druga (oddzielona od pierwszej) odbiera je.
+
+## Sterowanie odporne
+Sposób sterowania zaprojektowany aby regulator działał poprawnie w warunkach gdy pewne informacje na temat obiektu są niepewne (np. parametry modelu są wyzanczone w przybliżony sposób). Sterowanie odporne potrzebuje infromacji o granicach niepewności pomiarów, gwarantuje, że jeżeli zmiany leżą w pewnych granicach to nie trzeba zmieniać przyjętej zasady sterowania.
+[źródło](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=2&ved=0ahUKEwj-oPip-_PbAhXBZFAKHTHrAucQFgg5MAE&url=http%3A%2F%2Fanna.czemplik.staff.iiar.pwr.wroc.pl%2Fimages%2FDprojektowanie%2F09_Odporne.pdf&usg=AOvVaw1GZQIn86bCDI7inIZRD4Zp)
 
 ## System BIBO (Bounded Input Bounded Output)
 Jedna z definicji stabilności układu dynamicznego.
@@ -83,14 +108,11 @@ Zadanie kinematyki prostej można określić następująco: posiadając dane o z
 
 [Przykładowe zadania z rozwiązaniami](https://www.robotyka.com/teoria.php/teoria.75)
 
-## Realizacja iloczynu logicznego dwóch zmiennych
-?
-
 ## Rezolwer
 Urzędzenie służące do pomiaru kąta [[źródło]](https://pl.wikipedia.org/wiki/Resolver). Uzyskuje informacje o położeniu kątowym przegubu.
 
 ## Enkoder
-czujnik przemieszczenia
+Służy do uzyskiwania informacji na temat prędkości i kierunku obrotu koła
 
 ## Sposoby detekcji uszkodze
 ?
