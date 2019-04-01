@@ -9,6 +9,8 @@ WRITE = 4 # nr funkcji wyjścia (=4)
 ERR_CODE = 0
 BUF_SIZE = 1 # rozmiar bufora
 
+SHIFT_SIZE = 3 # o ile przesunąć wartości liter
+
 .bss
 	.comm buf, BUF_SIZE
 
@@ -32,13 +34,13 @@ _loadLetter:
 	movb buf, %al # kod ascii litery w rejestrze a
 
 	cmpb $'A', %al
-	jl _loadLetter # nieprawidłowa wartość
+	jl _printAndProceed # nieprawidłowa wartość
 	cmpb $'Z', %al
-	jg _loadLetter # nieprawidłowa wartość
+	jg _printAndProceed # nieprawidłowa wartość
 	
 	# buf powinien być w prawidłowym zakresie
 
-	add $3, %al # zwiekszenie kodu ascii o 3
+	add $SHIFT_SIZE, %al # zwiekszenie kodu ascii o SHIFT_SIZE
 
 	cmpb $'Z', %al
 	jg _letterOutOfRange # 'Z' > %al
@@ -69,12 +71,6 @@ _printAndProceed:
 	jmp _loadLetter # czytaj dalej
 
 _exit:
-	# nowa linia pod koniec odczytu
-	mov $WRITE, %eax
-	mov $STDOUT, %ebx
-	mov $10, %ecx
-	mov $1, %edx
-	int $SYSCALL32
 
 	# zakończenie wykonywania programu
     mov $EXIT, %eax 
