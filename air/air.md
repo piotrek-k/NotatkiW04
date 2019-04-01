@@ -63,7 +63,7 @@ liczba stopni swobody łańcucha kinematycznego z unieruchomionym pierwszym i os
 
 ## Realizacja iloczynu logicznego dwóch zmiennych
 [Iloczyn logiczny inaczej koniunkcja](https://pl.wikipedia.org/wiki/Koniunkcja_(logika))
-![](notatki_zalaczniki\and_relay.jpg)
+![](./notatki_zalaczniki/and_relay.jpg)
 [źródło](http://slideplayer.com/slide/8621835/)
 
 ## Układ otwarty
@@ -114,7 +114,7 @@ Urzędzenie służące do pomiaru kąta [[źródło]](https://pl.wikipedia.org/w
 ## Enkoder
 Służy do uzyskiwania informacji na temat prędkości i kierunku obrotu koła
 
-## Sposoby detekcji uszkodze
+## Sposoby detekcji uszkodzeń
 ?
 
 ## Liczba stopni swobody (degrees of fredom)(DoF)
@@ -143,7 +143,7 @@ Przykład z wykładu: orkiestra i skrzypek; jeżeli nagranie ich osobno da taki 
 ## Enkoder magnetyczny
 Urządzenie służące do uzyskania informacji na temat prędkości i obrotu koła
 
-![](notatki_zalaczniki\magneticencoder.jpg)
+![](./notatki_zalaczniki/magneticencoder.jpg)
 
 ## Odometria
 Dział miernictwa, który zajmuje się pomiarem odległości. W robotyce jest wykorzystywana do oszacowania zmiany położenia robota względem początkowej pozycji.
