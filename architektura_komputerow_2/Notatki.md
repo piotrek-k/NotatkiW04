@@ -13,6 +13,10 @@
 
 [Dokumentacja Intela - Instruction Set Reference](http://www.zak.ict.pwr.wroc.pl/materials/architektura/laboratorium%20AK2/Dokumentacja/Intel%20Penium%20IV/IA-32%20Intel%20Architecture%20Software%20Developers%20Manual%20vol.%202%20-%20Instruction%20Set%20Reference.pdf)
 
+[Docs: Memory references](https://sourceware.org/binutils/docs/as/i386_002dMemory.html#i386_002dMemory)
+
+[Docs: Instruction naming](https://sourceware.org/binutils/docs/as/i386_002dMnemonics.html#Instruction-Naming)
+
 # SVN
 
 Dostęp do repozytorium
