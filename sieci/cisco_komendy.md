@@ -64,6 +64,34 @@ FastEthernet0/4        unassigned      YES unset  down    down
 [...] 
 ```
 
+Adresy MAC dla każdego interfejsu na routerze:
+```
+R1> show arp
+Protocol  Address          Age (min)  Hardware Addr   Type   Interface
+Internet  192.168.1.1             -30f7.0da3.1821  ARPA   GigabitEthernet0/1
+```
+
+Szczegółowe informacje o interfejsie (podejrzenie adresu MAC portu?)
+```
+R1> show interfaces g0/1
+GigabitEthernet0/1 is up, line protocol is up
+Hardware is CN Gigabit Ethernet, address is 30f7.0da3.1821(bia 30f7.0da3.1821)
+Internet address is 192.168.1.1/24
+MTU 1500 bytes, BW 100000 Kbit/sec, DLY 100 usec,
+reliability 255/255, txload 1/255, rxload 1/255
+Encapsulation ARPA, loopback not set
+```
+
+Podejrzenie wszystkich adresów MAC na switchu
+```
+Switch> showmac address-table
+```
+
+Wpisy ARP w przełączniku
+```
+S1# show ip arp
+```
+
 Podejrzenie pamięci flash
 ```
 Switch# show flash
@@ -149,4 +177,21 @@ Switch# erase startup-config
 Restart/przeładowanie switcha
 ```
 Switch# reload
+```
+
+Reset tablicy adresów MAC:
+```
+S2# clear mac address-table dynamic
+```
+
+# Windows
+
+Wyświetlenie wpisów ARP na komputerze:
+```
+arp –a
+```
+
+Usunięcie wszystkich wpisów bufora ARP z komputera:
+```
+arp –d *
 ```
