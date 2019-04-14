@@ -195,3 +195,11 @@ Usunięcie wszystkich wpisów bufora ARP z komputera:
 ```
 arp –d *
 ```
+
+Tablica routingu
+```
+netstat -r
+```
+* Lista interfejsów -  Zawiera adres MAC (ang. Media Access Control) wraz z przydzielonym przez system numerem dla każdego interfejsu sieciowego skonfigurowanego na hoście. Dotyczy to interfejsów Ethernet, Wi-Fi oraz adapterów Bluetooth.
+* Tabela tras IPv4 - Zawiera listę wszystkich znanych przez hosta tras IPv4, w tym również bezpośrednich połączeń, sieci lokalnej i lokalnych tras domyślnych.
+* Tabela tras IPv6 - Zawiera listę wszystkich znanych przez hosta tras IPv6, w tym również bezpośrednich połączeń, sieci lokalnej i lokalnych tras domyślnych.
