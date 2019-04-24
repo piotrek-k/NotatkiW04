@@ -107,9 +107,9 @@ Zmiana nazwy przełącznika
 ```
 Switch(config)# hostname Nowa_nazwa_przelacznika
 ```
-Zapobieganie niepożądanym zapytaniom DNS (zapobiegnięcie próbom tłumaczenia niepoprawnie  wprowadzonych poleceń na nazwy hostów)
+Zapobieganie niepożądanym zapytaniom DNS (zapobiegnięcie próbom tłumaczenia niepoprawnie  wprowadzonych poleceń na nazwy hostów)(DNS-lookup)
 ```
-S1(config)# noipdomain-lookup
+S1(config)# no ip domain-lookup
 ```
 Konfiguracja bannera motd (ze znakiem ograniczającym #)
 ```
@@ -134,6 +134,21 @@ S1(config-line)# exit
 S1(config)#
 ```
 
+Hasło do VTY
+> Virtual teletype (VTY) is a command line interface (CLI) created in a router and used to facilitate a connection to the daemon via Telnet, a network protocol used in local area networks.
+```
+R1(config)# line vty 0 4
+R1(config-line)# password cisco
+R1(config-line)# login
+R1(config-line)# exit
+R1(config)#
+```
+
+Zaszyfruj hasła
+```
+R1(config)# service password-encryption
+```
+
 Zapisz konfigurację (ustalone hasła będą obowiązywały po restarcie switcha)
 ```
 S1# copy running-config startup-config
@@ -151,7 +166,7 @@ S1(config-if)# exit
 S1(config)#
 ```
 
-* konfiguracja terminala wirtualnego (VTY) (wymagane do połączenia przez telenet)
+* konfiguracja terminala wirtualnego (VTY) (wymagane do połączenia przez telnet)
 ```
 S1(config)#line vty 0 4
 S1(config-line)# password cisco
@@ -162,9 +177,25 @@ S1#
 
 Nawiązywanie sesji telnet: w `Putty`: adres IP podany poprzez komendę `ip adress` wyżej, connection type: `Telnet`. Switch zapyta o hasło, takie jak ustawione wyżej (cisco).
 
+## Interfejsy
+
+Aktywacja i konfiguracja interfejsów na routerze.
+Przypisanie interfejsom adresów IP
+```
+R1(config)# int g0/0
+R1(config-if)# description Connection to PC-B.
+R1(config-if)# ip address 192.168.0.1 255.255.255.0
+R1(config-if)# no shut
+R1(config-if)#
+```
+Zapis konfiguracji
+```
+R1# copy running-config startup-config
+```
+
 ## Inicjalizacja, resetowanie
 
-Usunięcie pliku `vlan.dat` z pamięci flash
+Usunięcie pliku z definicją sieci VLAN. Usunięcie pliku `vlan.dat` z pamięci flash
 ```
 Switch# delete vlan.dat
 ```
@@ -196,10 +227,21 @@ Usunięcie wszystkich wpisów bufora ARP z komputera:
 arp –d *
 ```
 
-Tablica routingu
+Tablica routingu (tablica trasowania)
 ```
 netstat -r
 ```
+
+> Tablica trasowania – spis wskazujący, przez które sąsiadujące z routerem węzły sieci prowadzi trasa do węzłów oddalonych. Tablica trasowania jest utrzymywana niezależnie przez każdy router. 
+
+> Mając informację o docelowym adresie IP router wybiera najlepiej pasujący wpis w tablicy. Ta zasada zwana jest LONGEST PREFIX MATCH, czyli zasadą najlepiej dopasowanego wpisu, a więc wpisu o najdłuższej pasującej kombinacji maski sieci i adresu docelowego. To oznacza, że w naszym przypadku wpis: 192.168.1.20/32 jest bardziej dopasowany niż 192.168.1.0/24 w poszukiwaniu trasy do adresu IP 192.168.1.20.
+[źródło](https://bootcamp.grandmetric.com/aktualnosci/2018/03/01/dziala-tablica-routingu/)
+
 * Lista interfejsów -  Zawiera adres MAC (ang. Media Access Control) wraz z przydzielonym przez system numerem dla każdego interfejsu sieciowego skonfigurowanego na hoście. Dotyczy to interfejsów Ethernet, Wi-Fi oraz adapterów Bluetooth.
 * Tabela tras IPv4 - Zawiera listę wszystkich znanych przez hosta tras IPv4, w tym również bezpośrednich połączeń, sieci lokalnej i lokalnych tras domyślnych.
 * Tabela tras IPv6 - Zawiera listę wszystkich znanych przez hosta tras IPv6, w tym również bezpośrednich połączeń, sieci lokalnej i lokalnych tras domyślnych.
+
+```
+netstat -a
+```
+> służy do wyświetlania wszystkich aktywnych połączeń protokołu TCP, a także portów protokołu TCP i UDP, na których komputer nasłuchuje. 
