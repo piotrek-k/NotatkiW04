@@ -64,6 +64,11 @@ FastEthernet0/4        unassigned      YES unset  down    down
 [...] 
 ```
 
+Adresy IPv6 interfejsów:
+```
+R1# show ipv6 interface brief
+```
+
 Adresy MAC dla każdego interfejsu na routerze:
 ```
 R1> show arp
@@ -191,6 +196,27 @@ R1(config-if)#
 Zapis konfiguracji
 ```
 R1# copy running-config startup-config
+```
+
+W przypadku IPv6 (przypisanie do interfejsów Ethernet routera globalnych adresów unicast IPv6):
+```
+R1(config)# interface g0/0
+R1(config-if)# ipv6 address 2001:db8:acad:a::1/64
+R1(config-if)# no shutdown
+```
+
+## IPv6
+Włączenie obsługi adresów IPv6:
+```
+S(config)#sdm prefer dual-ipv4-and-ipv6 default
+```
+
+Włączenie routingu IPv6 w routerze:
+```
+R1 # configure terminal
+R1(config)# ipv6 unicast-routing
+R1(config)# exit
+R1#
 ```
 
 ## Inicjalizacja, resetowanie
