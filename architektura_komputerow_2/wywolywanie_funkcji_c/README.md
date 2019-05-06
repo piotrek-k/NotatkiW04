@@ -48,3 +48,35 @@ Wywoływanie funkcji z innych segmentów kodu (takich jak procedury systemu oper
 `POPA` przywraca zapisane wartości.
 
 `PUSHF(lower word)/PUSHFD(entire register), POPF/POPFD` mogą być użyte dla rejestru `EFLAGS`.
+
+# Function Calling Sequence
+
+[źródło](http://www.zak.ict.pwr.wroc.pl/materials/architektura/laboratorium%20AK2/Dokumentacja/Application%20Binary%20Interface/System%20V%20Application%20Binary%20Interface%20Intel386%20Architecture%20Processor%20Supplement%20Fourth%20Edition.pdf#page=35&zoom=auto,-17,726)
+
+![](fundamental_types.png)
+
+![](registers.png)
+
+Oprócz rejestrów, każda funckja posiada ramkę obecnego stosu. Wartość stosu "rośnie w dół" zaczynając od tzw. "High addresses".
+
+![](standard_stack_frame.png)
+
+![](how_struct_data_is_aligned.png)
+
+![](how_struct_data_is_aligned2.png)
+
+* "Stack is word aligned". "Word' to 2 bajty.
+* Argumenty funkcji C znajdują sie na stosie w odwrotnej kolejności. Argument znajdujący się po prawej stronie w kodzie języka C będzie miał najwyższy adres. Wszystkie przychodzące argumenty (?) znajdują się na stosie (caller - jednostki wywołującej funkcję). 
+* Wielkość arguemntu jest zwiększana jeśli to konieczne, aby jego wielkość była wielokrotnością słowa (word, 2 bajty).
+
+Wszystkie rejestry są globalne oraz widoczne dla funkcji wywołującej i wywołanej.
+
+`%ebp, %ebx, %edi, %esi i %esp` należą do wywołującej funckji (wywoływana funkcja musi zachować (?) te rejestry dla swojego [caller]). Pozostałe rejestry należą do funkcji wywoływanej (called func). Jeżeli caller chce zachować wartości takich rejestrów, musi je zachować na stosie.
+
+Rejestry (str 38):
+`%esp` - stack pointer. Zachowuje pozycję ramki stosu. Adres słowa na szczycie stosu.
+`%ebp` - frame pointer. Adres bazowy ramki stosu. Funkcja dostaje nową ramkę (?) która leży tuż za stosem callera. Aby uzyskać argument funkcji, należy dodać pewną wartość do %ebp (uzyskamy w ten sposób dane tuż za ramką funkcji). Odejmując wartości, uzyskamy dostęp do lokalnychzmiennych funkcji.
+`%eax` - funkcja zwracająca `struct` albo `union` umieszcza ich adres w eax. Otherwise this is a scratch register (?).
+`%ebx` - As described below, this register serves as theglobal offset tablebase registerfor position-independent code.  For absolute code,% e b xserves as a local register and has no specified role in thefunction calling sequence.  In either case, a function mustpreserve the register value for the caller. (?)
+
+[...]
