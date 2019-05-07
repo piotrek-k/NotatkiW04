@@ -5,7 +5,11 @@ EXIT_SUCCESS = 0
 .text
 .global main
 
+.extern zmiennaX
+
 main:
+    call wyswietl
+
     push $1
     push $2
     push $3
@@ -15,6 +19,12 @@ main:
     pop %eax
     pop %eax
     pop %eax
+
+    mov zmiennaX, %eax
+    inc %eax
+    mov %eax, zmiennaX
+
+    call wyswietl
 
 # zakończenie wykonywania programu
 mov $EXIT, %eax 
