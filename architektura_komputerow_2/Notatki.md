@@ -1,4 +1,5 @@
 # Linki
+
 [Guide to GDB](http://apoorvaj.io/hitchhikers-guide-to-the-gdb.html#gdbinit)
 
 [GDB Cheatsheet](https://darkdust.net/files/GDB%20Cheat%20Sheet.pdf)
@@ -16,6 +17,9 @@
 [Docs: Memory references](https://sourceware.org/binutils/docs/as/i386_002dMemory.html#i386_002dMemory)
 
 [Docs: Instruction naming](https://sourceware.org/binutils/docs/as/i386_002dMnemonics.html#Instruction-Naming)
+
+[WIKIBOOKS - instrukcje, składnia](https://en.wikibooks.org/wiki/X86_Assembly)
+[Adresowanie: poruszanie się po tablicy, stosie. Oznaczenia sufixów](https://en.wikibooks.org/wiki/X86_Assembly/GAS_Syntax#Address_operand_syntax)
 
 # SVN
 
