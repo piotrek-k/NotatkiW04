@@ -18,6 +18,15 @@
 
 [Docs: Instruction naming](https://sourceware.org/binutils/docs/as/i386_002dMnemonics.html#Instruction-Naming)
 
+[Docs: Dyrektywy asemblera (rezerwacja pamięci)](https://sourceware.org/binutils/docs/as/Pseudo-Ops.html#Pseudo-Ops)
+
+- `.space size [,fill]` - wypełnienie bajtów wartością `fill`
+- `.comm symbol , length` - zarezerwuj `length` bitów, do których można się odnieść poprzez wpisanie `symbol` (`.comm liczba1, 4` a potem `mov liczba1(, %rcx, 4), %edi`)
+
+- [Sekcja bss](https://sourceware.org/binutils/docs/as/bss.html#bss) - rezerwacja pamięci dopiero podczas uruchomienia programu (?)
+
+* dane w `data` wliczają się w wagę pliku wykonywalnego (?)
+
 [WIKIBOOKS - instrukcje, składnia](https://en.wikibooks.org/wiki/X86_Assembly)
 [Adresowanie: poruszanie się po tablicy, stosie. Oznaczenia sufixów](https://en.wikibooks.org/wiki/X86_Assembly/GAS_Syntax#Address_operand_syntax)
 
