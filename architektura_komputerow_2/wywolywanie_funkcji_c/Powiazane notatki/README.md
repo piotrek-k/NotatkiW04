@@ -1,3 +1,54 @@
+# Funkcje
+
+Na podstawie "Programming From Ground Up"
+
+Wywołanie `call`:
+
+1. Wrzuca na stos tzw. `return address` (adres następnej instrukcji po wykonaniu funkcji)
+2. Modyfikuje `%eip` żeby wskazywało na adres początku funkcji
+
+Zakładając, że program przekazuje funkcji jakieś parametry, stos wygląda tak:
+![](stack1.png)
+
+Następnie funkcja musi zrobić kopię %ebp:
+
+```
+push %ebp
+```
+
+I ustalić adres bazowy stosu na jego szczyt:
+
+```
+mov %esp, %ebp
+```
+
+W ten sposób będziemy mogli odowłać sie do parametrów (bo będą miały stałą pozycję relatywnie do %ebp)
+
+Teraz stos wygląda tak:
+![](stack2.png)
+
+Jeżeli chcemy używać zmiennych lokalnych, należy zarezerwować dla nich pamięć:
+
+```
+subl $8, %esp
+```
+
+Zmienjszamy wskaźnik stosu o 8 bajtów (czyli zwiększamy stos o 2 'słowa')
+
+Pozwala to na używanie `push` i `pop` w dalszej części programu bez obawy, że nadpiszą zmienne lokalne.
+
+![](stack3.png)
+
+Po zakończeniu wywoływania funkcji, przywracamy `%ebp` to poprzedniej pozycji. Zmienne lokalne nie ulegną usunięciu, ale w każdej chwili mogą zostać nadpisane przez wywołanie `push`.
+
+```
+movl %ebp, %esp
+popl %ebp
+ret
+```
+
+Zwracana wartość znajdzie się w `%eax`.
+
 # Procedure calls
 
 [źródło](http://www.zak.ict.pwr.wroc.pl/materials/architektura/laboratorium%20AK2/Dokumentacja/Intel%20Penium%20IV/IA-32%20Intel%20Architecture%20Software%20Developers%20Manual%20vol.%201%20-%20Basic%20Architecture.pdf)

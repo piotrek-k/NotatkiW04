@@ -142,3 +142,12 @@ Wielkość wyświetlanej jednostki (`u`):
 # wyświetl jedno ośmiobajtowe słowo w formacie binarnym
 (gdb) display/1tg &buf
 ```
+
+Usuń breakpoint
+
+```
+d[elete] b[reakpoints] number
+```
+
+`number` to numer breakpointa.
+Numer można sprawdzić komendą `i[nfo] b[reak]`.
