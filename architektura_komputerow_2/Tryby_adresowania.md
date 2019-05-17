@@ -43,5 +43,12 @@ Zapisanie liczby 12 do eax
 ```
 movl $12, %eax
 ```
-
-W przypadku etykiet (które zawierają adres), dolar spowoduje skopiowanie adresu (sprawdzić)
+Przeniesienie adresu `char` do ebx
+```
+mov $char, %ebx
+```
+Gdzie `char` to 
+```
+.bss
+	.comm char, 1
+```
