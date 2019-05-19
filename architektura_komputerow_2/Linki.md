@@ -29,3 +29,5 @@
 
 [WIKIBOOKS - instrukcje, składnia](https://en.wikibooks.org/wiki/X86_Assembly)
 [Adresowanie: poruszanie się po tablicy, stosie. Oznaczenia sufixów](https://en.wikibooks.org/wiki/X86_Assembly/GAS_Syntax#Address_operand_syntax)
+
+[GDB Dashboard (interfejs konsolowy do GDB)](https://github.com/cyrus-and/gdb-dashboard/)

@@ -36,3 +36,9 @@ Napotkane błędy:
 [W zależności od architektury systemu musimy używać rejestrów o odpowiedniej wielkości wrzucając dane a stos.](https://stackoverflow.com/questions/21245245/c-uses-assemble-operand-type-mismatch-for-push)
 
 
+# C -> ASM
+
+(sprawdzić)
+```
+gcc -S file.c -o file.s -m32
+```
