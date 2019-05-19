@@ -1,4 +1,18 @@
-Kompilacja
+# Kompilacja ASM
+
+Generowanie pliku obiektowego. `-gstabs` pozwala na tworzenie breakpointów w gdb
+
+```
+as -o ./build/zadanie.o zadanie.s -gstabs
+```
+
+Generowanie pliku wykonywalnego `./build/zadanie` z pliku obiektowego `./build/zadanie.o`
+
+```
+ld -o ./build/zadanie ./build/zadanie.o
+```
+
+# Kompilacja razem z plikami C
 
 ```
 gcc -g zad2.s zad2.c -o executable -m32
@@ -20,3 +34,5 @@ Napotkane błędy:
 > Error: operand type mismatch for `push'
 
 [W zależności od architektury systemu musimy używać rejestrów o odpowiedniej wielkości wrzucając dane a stos.](https://stackoverflow.com/questions/21245245/c-uses-assemble-operand-type-mismatch-for-push)
+
+

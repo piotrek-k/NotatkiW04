@@ -8,7 +8,8 @@ Wywołanie `call`:
 2. Modyfikuje `%eip` żeby wskazywało na adres początku funkcji
 
 Zakładając, że program przekazuje funkcji jakieś parametry, stos wygląda tak:
-![](stack1.png)
+
+![](./assets/stack1.png)
 
 Następnie funkcja musi zrobić kopię %ebp:
 
@@ -25,7 +26,8 @@ mov %esp, %ebp
 W ten sposób będziemy mogli odowłać sie do parametrów (bo będą miały stałą pozycję relatywnie do %ebp)
 
 Teraz stos wygląda tak:
-![](stack2.png)
+
+![](./assets/stack2.png)
 
 Jeżeli chcemy używać zmiennych lokalnych, należy zarezerwować dla nich pamięć:
 
@@ -37,7 +39,7 @@ Zmienjszamy wskaźnik stosu o 8 bajtów (czyli zwiększamy stos o 2 'słowa')
 
 Pozwala to na używanie `push` i `pop` w dalszej części programu bez obawy, że nadpiszą zmienne lokalne.
 
-![](stack3.png)
+![](./assets/stack3.png)
 
 Po zakończeniu wywoływania funkcji, przywracamy `%ebp` to poprzedniej pozycji. Zmienne lokalne nie ulegną usunięciu, ale w każdej chwili mogą zostać nadpisane przez wywołanie `push`.
 
@@ -113,17 +115,17 @@ Wywoływanie funkcji z innych segmentów kodu (takich jak procedury systemu oper
 
 [źródło](http://www.zak.ict.pwr.wroc.pl/materials/architektura/laboratorium%20AK2/Dokumentacja/Application%20Binary%20Interface/System%20V%20Application%20Binary%20Interface%20Intel386%20Architecture%20Processor%20Supplement%20Fourth%20Edition.pdf#page=35&zoom=auto,-17,726)
 
-![](fundamental_types.png)
+![](./assets/fundamental_types.png)
 
-![](registers.png)
+![](./assets/registers.png)
 
 Oprócz rejestrów, każda funckja posiada ramkę obecnego stosu. Wartość stosu "rośnie w dół" zaczynając od tzw. "High addresses".
 
-![](standard_stack_frame.png)
+![](./assets/standard_stack_frame.png)
 
-![](how_struct_data_is_aligned.png)
+![](./assets/how_struct_data_is_aligned.png)
 
-![](how_struct_data_is_aligned2.png)
+![](./assets/how_struct_data_is_aligned2.png)
 
 - "Stack is word aligned". "Word' to 2 bajty.
 - Argumenty funkcji C znajdują sie na stosie w odwrotnej kolejności. Argument znajdujący się po prawej stronie w kodzie języka C będzie miał najwyższy adres. Wszystkie przychodzące argumenty (?) znajdują się na stosie (caller - jednostki wywołującej funkcję).
