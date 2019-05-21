@@ -1,11 +1,11 @@
-float getFPUreturnFPU(float fpu)
+float getFPUreturnFPU(float a, float b)
 {
-    fpu = fpu * 2;
+    float fpu = a / b;
 
     return fpu;
 }
 
 int main()
 {
-    float x = getFPUreturnFPU(2.0f);
+    float x = getFPUreturnFPU(2.0f, 3.0f);
 }
