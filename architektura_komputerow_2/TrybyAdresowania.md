@@ -43,12 +43,24 @@ Zapisanie liczby 12 do eax
 ```
 movl $12, %eax
 ```
+
 Przeniesienie adresu `char` do ebx
+
 ```
 mov $char, %ebx
 ```
-Gdzie `char` to 
+
+Gdzie `char` to
+
 ```
 .bss
 	.comm char, 1
+```
+
+### Modyfikacje adresów (leal)
+
+Zmiejsza zawartość rejestru ESP o 4
+
+```
+leal	-4(%esp), %esp
 ```
