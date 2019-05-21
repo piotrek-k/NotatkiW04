@@ -78,3 +78,14 @@ d[elete] b[reakpoints] number
 
 `number` to numer breakpointa.
 Numer można sprawdzić komendą `i[nfo] b[reak]`.
+
+Wyświetl liczbę zmiennoprzecinkową z adresu pod value1:
+
+```
+# IN ASM
+.data
+    value2: .float 3.0
+
+# IN GDB
+x/fw &value1
+```
