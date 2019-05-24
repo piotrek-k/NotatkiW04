@@ -17,9 +17,11 @@
 
 ## Tryby
 Wejście w tryb uprzywilejowany (EXEC)
+> Poziom trybu EXEC nie pozwala wykonywać komend, które mogłyby zmienić konfigurację urządzenia.
 ```
+Switch> <--- znak zachęty w trybie EXEC użytkownika
 Switch> enable
-Switch# <--- znak zachęty w trybie EXEC
+Switch# <--- znak zachęty w trybie uprzywilejowanym EXEC
 ```
 
 Tryb konfiguracji globalnej:
@@ -159,6 +161,26 @@ Zapisz konfigurację (ustalone hasła będą obowiązywały po restarcie switcha
 S1# copy running-config startup-config
 ```
 
+Ustaw wymaganą długość hasła:
+```
+R1(config)# security passwords min-length 10
+```
+
+Wyloguj po upływie pewnego czasu
+```
+R1(config)# line console 0
+R1(config-line)# exec-timeout 5 0
+R1(config-line)# line vty 0 4
+R1(config-line)# exec-timeout 5 0
+R1(config-line)# exit
+R1(config)#
+```
+
+Utrudnienie prób ataku siłowego. Blokada logowania po przekroczeniu liczby prób:
+```
+R1(config)# login block-for 30 attempts 2 within 120
+```
+
 ## Umożliwienie zdalnego zarządzania przełącznikiem
 * przejście do trybu konfiguracji globalnej
 * ustawienie adresu IP dla interfejsu SVI przełącznika
@@ -173,7 +195,7 @@ S1(config)#
 
 * konfiguracja terminala wirtualnego (VTY) (wymagane do połączenia przez telnet)
 ```
-S1(config)#line vty 0 4
+S1(config)#line vty 0 4 <--- [conf. terminal line] [virtual terminal] [first line number] [last line number]
 S1(config-line)# password cisco
 S1(config-line)# login
 S1(config-line)# end
@@ -181,6 +203,29 @@ S1#
 ```
 
 Nawiązywanie sesji telnet: w `Putty`: adres IP podany poprzez komendę `ip adress` wyżej, connection type: `Telnet`. Switch zapyta o hasło, takie jak ustawione wyżej (cisco).
+
+### Połączania SSH:
+Ustaw nazwę domeny:
+```
+R1(config)# ip domain-name CCNA-lab.com
+```
+Tworzenie konta użytkownika do łączenia się po SSH:
+```
+R1(config)# username admin privilege 15 secret Admin15p@55
+```
+
+Konfiguruj linię VTY
+```
+R1(config)# line vty 0 4 <--- [conf. terminal line] [virtual terminal] [first line number] [last line number]
+R1(config-line)# transport input ssh <--- Define which protocols to use when connecting to the terminal server
+R1(config-line)# login local <---- [enable password checking] [local password checking]
+R1(config-line)# exit
+```
+
+Generuj klucz RSA:
+```
+R1(config)# crypto key generate rsa modulus 1024
+```
 
 ## Interfejsy
 
@@ -239,6 +284,12 @@ Switch# reload
 Reset tablicy adresów MAC:
 ```
 S2# clear mac address-table dynamic
+```
+
+## Inne
+Prześlij plik ustawień na podany adres po TFTP
+```
+R1# copy running-config tftp:
 ```
 
 # Windows
