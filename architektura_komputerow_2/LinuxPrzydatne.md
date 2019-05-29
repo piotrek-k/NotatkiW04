@@ -1,6 +1,7 @@
 ## Wyświetlenie binarnej zawartości pliku:
 
 (sprawdzić)
+
 ```
 xxd -b nazwa_pliku
 ```
@@ -39,4 +40,31 @@ $ hexdump -C rw
 00000390  73 73 5f 73 74 61 72 74  00 5f 65 64 61 74 61 00  |ss_start._edata.|
 000003a0  5f 65 6e 64 00                                    |_end.|
 000003a5
+```
+
+Z kodu C wygeneruj kod ASM:
+
+```
+$ gcc -S HelloWorld.c -o HelloWorld.s
+```
+
+Dissasemble executable file:
+
+```
+$ objdump -d zadanie
+
+zadanie:     file format elf32-i386
+
+
+Disassembly of section .init:
+
+080482e0 <_init>:
+ 80482e0:	55                   	push   %ebp
+ 80482e1:	89 e5                	mov    %esp,%ebp
+ 80482e3:	53                   	push   %ebx
+ 80482e4:	83 ec 04             	sub    $0x4,%esp
+ 80482e7:	e8 00 00 00 00       	call   80482ec <_init+0xc>
+ 80482ec:	5b                   	pop    %ebx
+ 80482ed:	81 c3 08 1d 00 00    	add    $0x1d08,%ebx
+
 ```

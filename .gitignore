@@ -1,1 +1,4 @@
 build
+.vscode
+.gdb_history
+architektura_komputerow_2/c_to_asm/fpu

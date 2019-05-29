@@ -33,7 +33,13 @@ Wyświetlaj po każdym kroku wartość rejestru:
 display $eax
 ```
 
+Wyświetlaj zawartość pod
+
 ## Wyświetlanie danych
+
+> `x` shows you the contents of a memory address
+
+> `p` shows you the value stored in a named variable
 
 [Manual GDB - wskazówki dotyczące wyświetlania danych](ftp://ftp.gnu.org/old-gnu/Manuals/gdb/html_chapter/gdb_9.html#SEC56)
 
@@ -78,3 +84,20 @@ d[elete] b[reakpoints] number
 
 `number` to numer breakpointa.
 Numer można sprawdzić komendą `i[nfo] b[reak]`.
+
+Wyświetl dane znajdujące się pod podanym adresem (status_word: zmienna typu short):
+
+```
+x/1tw &status_word
+```
+
+Wyświetl liczbę zmiennoprzecinkową z adresu pod value1:
+
+```
+# IN ASM
+.data
+    value2: .float 3.0
+
+# IN GDB
+x/fw &value1
+```
