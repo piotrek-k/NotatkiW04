@@ -14,3 +14,16 @@ Wywołanie instrukcji MMX powoduje utratę danych w jednostce zmiennoprzecinkowe
 
 - FPU -> MMX: zapisać stan rejestrów FPU (instrukcje `FSAVE`, `FXSAVE`)
 - MMX -> FPU: `FSAVE`, `FXSAVE` także zadziała. Ponadto zaleca się wywołanie `EMMS` (empty mmx state)
+
+## Konstrukcja komend:
+
+sufiksy:
+
+    Byte (8 bits)
+    Word (16 bits)
+    Double word (32 bits)
+    Quad word (64 bits)
+    US (unsigned)
+    S (signed)
+
+PSUBUSB subtracts unsigned bytes, while PSUBSD subtracts signed double words
