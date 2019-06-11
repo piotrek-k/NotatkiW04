@@ -42,13 +42,13 @@ $ hexdump -C rw
 000003a5
 ```
 
-Z kodu C wygeneruj kod ASM:
+## Z kodu C wygeneruj kod ASM:
 
 ```
 $ gcc -S HelloWorld.c -o HelloWorld.s
 ```
 
-Dissasemble executable file:
+## Dissasemble executable file:
 
 ```
 $ objdump -d zadanie
@@ -67,4 +67,31 @@ Disassembly of section .init:
  80482ec:	5b                   	pop    %ebx
  80482ed:	81 c3 08 1d 00 00    	add    $0x1d08,%ebx
 
+```
+
+## Zestawienie kodu asemblerowego z jego binarną reprezentacją w pliku
+
+```
+as -alh zadanie.s --32
+```
+
+```
+GAS LISTING zadanie.s 			page 1
+
+
+   1              	SYSCALL32 = 0x80 # wywołanie funkcji standardowej
+   2              	EXIT = 1 # nr funkcji restartu (=1) – zwrot sterowania do s.o.
+   3              	EXIT_SUCCESS = 0
+   4              	.bss
+   5              		.comm short, 2
+   6              		.comm char, 1
+   7
+   8              	.data
+   9 0000 506F6461 		msg_short: .asciz "Podaj wartosc short:"			 # ciąg znaków kończący się znakiem \0
+   9      6A207761
+   9      72746F73
+   9      63207368
+   9      6F72743A
+  10 0015 506F6461 		msg_char: .asciz "Podaj wartosc char:"
+[...]
 ```
