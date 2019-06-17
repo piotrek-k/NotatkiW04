@@ -1,6 +1,6 @@
 .text
-.global count
-.type count, @function
+.global count           # .global makes the symbol visible to ld
+.type count, @function  # Mark the symbol as being a function name. 
 
 count:
     pushl %ebp
