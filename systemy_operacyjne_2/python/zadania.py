@@ -18,6 +18,10 @@ k1  = sys.argv[1]
 k2  = sys.argv[2]
 t   = sys.argv[3]
 
+if not os.path.isdir(k1) or not os.path.isdir(k2) or not os.path.isdir(t):
+    print("Nieodpowiednie argumenty")
+    exit(1)
+
 with os.scandir(k1) as it:
     for entry in it:
         #source = os.path.join(k1, entry.name)
